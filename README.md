@@ -1,2 +1,2 @@
-# muing
+# Muing
 Muing Programming Language. 
