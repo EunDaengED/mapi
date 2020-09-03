@@ -1,2 +1,2 @@
 # Muing
-Muing Programming Language. 
+Eorara
