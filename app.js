@@ -42,13 +42,9 @@ siganKaling("영월중학교", 1, 2).then(function(x){
 	res.write("<head>\n");
 	res.write('<meta charset = "utf-8">\n');
 	res.write("</head>\n");
-//	res.write("<body>\n");
-	res.write('<?php \n');
-	res.write("$im = imagecreatefrompng('"+x+"');\n");
-	res.write('imagepng($im);\n');
-	res.write('imagedestroy($im);\n')
-	res.write('?>\n')
-//	res.write("</body>\n");
+	res.write("<body>\n");
+	res.write(x+'\n');
+	res.write("</body>\n");
 	res.write("</html>\n");
     res.end();
   }).listen(3000, '0.0.0.0');
