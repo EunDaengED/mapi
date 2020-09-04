@@ -50,7 +50,7 @@ siganKaling("영월중학교", 1, 2).then(function(x){
 	res.write("</body>\n");
 	res.write("</html>\n");
     res.end();
-  }).listen(port, '127.0.0.1');
-console.log('Server running at 127.0.0.1');
+  }).listen(port);
+console.log('Server running port '+port);
 });
 console.log("success");
