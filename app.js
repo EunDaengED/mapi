@@ -47,7 +47,7 @@ siganKaling("영월중학교", 1, 2).then(function(x){
 	res.write("</body>\n");
 	res.write("</html>\n");
     res.end();
-  }).listen(3000, '0.0.0.0');
+  }).listen(80, '0.0.0.0');
 console.log('Server running at 0.0.0.0');
 });
 console.log("2");
