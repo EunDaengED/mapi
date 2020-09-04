@@ -1,5 +1,5 @@
 {
-  "name": "comci",
+  "name": "mapi",
   "version": "1.0.0",
   "description": "comcigan yeot meok eo",
   "main": "app.js",
@@ -13,13 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eundaenged/muing.git"
+    "url": "git+https://github.com/eundaenged/mapi.git"
   },
   "keywords": [],
   "author": "EunDaengED",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/eundaenged/muing/issues"
+    "url": "https://github.com/eundaenged/mapi/issues"
   },
-  "homepage": "https://github.com/eundaenged/muing#readme"
+  "homepage": "https://github.com/eundaenged/mapi#readme"
 }
