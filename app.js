@@ -33,7 +33,9 @@ resolve(rus);
 })
 });
 }
-port = process.env.PORT || 8080;
+
+port = process.env.PORT || 80;
+
 siganKaling("영월중학교", 1, 2).then(function(x){
   const http = require('http');
   http.createServer((req, res) => {
