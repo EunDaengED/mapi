@@ -34,11 +34,15 @@ resolve(rus);
 });
 }
 
-var port = process.env.PORT || 8080;
 
-siganKaling("영월중학교", 1, 2).then(function(x){
+var port = process.env.PORT || 8080;
   const http = require('http');
   http.createServer((req, res) => {
+	var url = require('url');
+	var queryData = url.parse(req.url, true).query;
+	if(queryData === null){ res.writeHead(404, {'Content-Type': 'text/plain'}); res.write('학교를 입력하시오!!'); res.end();}
+	siganKaling(queryData.school, 1, 2)
+	.then(function(x){
     res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write("<!DOCTYPE html>\n");
 	res.write("<html>\n");
@@ -50,7 +54,8 @@ siganKaling("영월중학교", 1, 2).then(function(x){
 	res.write("</body>\n");
 	res.write("</html>\n");
     res.end();
+  })
   }).listen(port, "0.0.0.0");
 console.log('Server running 0.0.0.0');
 console.log("success");
-});
+
