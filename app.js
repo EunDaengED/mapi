@@ -46,7 +46,7 @@ var port = process.env.PORT || 8080;
 	res.write('<meta charset = "utf-8">\n');
 	res.write("</head>\n");
 	res.write("<body>\n");
-	res.write(siganKaling("영월중학교", 1, 2).then(function(x){return x})+'\n');
+	siganKaling("영월중학교", 1, 2).then(function(x){res.write(x+'\n')})
 	res.write("</body>\n");
 	res.write("</html>\n");
     res.end();
