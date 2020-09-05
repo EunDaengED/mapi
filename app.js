@@ -36,7 +36,7 @@ resolve(rus);
 
 var port = process.env.PORT || 8080;
 
-siganKaling("영월중학교", 1, 2).then(function(x){
+
   const http = require('http');
   http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type': 'text/html'});
@@ -46,11 +46,10 @@ siganKaling("영월중학교", 1, 2).then(function(x){
 	res.write('<meta charset = "utf-8">\n');
 	res.write("</head>\n");
 	res.write("<body>\n");
-	res.write(x+'\n');
+	res.write(siganKaling("영월중학교", 1, 2).then(function(x){return x})+'\n');
 	res.write("</body>\n");
 	res.write("</html>\n");
     res.end();
   }).listen();
 console.log('Server running');
-});
 console.log("success");
