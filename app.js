@@ -40,7 +40,7 @@ var port = process.env.PORT || 8080;
   http.createServer((req, res) => {
 	var url = require('url');
 	var queryData = url.parse(req.url, true).query;
-	if(queryData === null){ res.writeHead(200, {'Content-Type': 'text/plain'}); res.write('학교를 입력하시오!!'); res.end();}
+	if(queryData === null){ res.writeHead(200, {'Content-Type': 'text/plain'}); res.end('학교를 입력하시오!!');}
 	siganKaling(queryData.school, 1, 2)
 	.then(function(x){
     res.writeHead(200, {'Content-Type': 'text/html'});
