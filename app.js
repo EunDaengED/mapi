@@ -50,6 +50,6 @@ var port = process.env.PORT || 8080;
 	res.write("</body>\n");
 	res.write("</html>\n");
     res.end();
-  }).listen();
+  }).listen(port, "127.0.0.1");
 console.log('Server running');
 console.log("success");
