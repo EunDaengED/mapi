@@ -50,7 +50,7 @@ var port = process.env.PORT || 8080;
 	res.write("<body>\n");
 	res.write('<div>\n');
 	res.write('<h1>404!</h1>\n');
-	res.write('<h2>학교를 입력하세요. comcigan.herokuapp.com/?school=***학교</h2>\n');
+	res.write('<h2>학교를 입력하세요. jetty.ml/?school=***학교</h2>\n');
 	res.write('</div>\n');
 	res.write("</body>\n");
 	res.write("</html>\n");
