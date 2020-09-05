@@ -1,6 +1,6 @@
 ﻿function siganKaling(school, grad, clas)
 {
-const Timetable = require('comcigan-parser');
+const Timetable = require('./cindex.js');
 const timetable = new Timetable();
 async function test(day, per){
 await timetable.init({ });
