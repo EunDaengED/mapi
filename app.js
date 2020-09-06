@@ -1,4 +1,4 @@
-function siganKaling(school, grad, clas)
+﻿function siganKaling(school, grad, clas)
 {
 const Timetable = require('./cindex.js');
 const timetable = new Timetable();
@@ -54,12 +54,15 @@ var port = process.env.PORT || 8080;
 	res.write('</div>\n');
 	res.write("</body>\n");
 	res.write("</html>\n");
-    res.end();
+	res.end();
 	}
-	
+	if(queryData.school != null && queryData.school != undefined && queryData.school != ''){
 	siganKaling(queryData.school, 1, 2)
 	.then(function(x){
-    
+	res.writeHead(200, {'Content-Type': 'text/html'});
+	res.write('<html><head><meta name="viewport" content="width=device-width, minimum-scale=0.1"><meta charset="utf-8"></head><body style="margin: 0px; background: #0e0e0e;"><img style="-webkit-user-select: none;margin: auto;" src=\''+x+'\'></body></html>');
+
+/*
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write("<!DOCTYPE html>\n");
 	res.write("<html>\n");
@@ -70,8 +73,10 @@ var port = process.env.PORT || 8080;
 	res.write(x+'\n');
 	res.write("</body>\n");
 	res.write("</html>\n");
+*/
     res.end();
   })
+}
   }).listen(port, "0.0.0.0");
 console.log('Server running 0.0.0.0');
 console.log("success");
