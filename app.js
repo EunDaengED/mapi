@@ -40,7 +40,13 @@ var port = process.env.PORT || 8080;
   http.createServer((req, res) => {
 	var url = require('url');
 	var queryData = url.parse(req.url, true).query;
-	if(queryData.school == null || queryData.school == undefined || queryData.school == ''){
+	  function qdf(){ 
+	  if(queryData.school == null || queryData.school == undefined || queryData.school == ''){ return {"result" : false, "reason": "학교 유효하지 않음 comcigan.herokuapp.com/?school=샌즈중학교&grade=1&class=5 와 같이 입력하세요"}; }
+	  else if(queryData.grade == null || queryData.grade == undefined || queryData.grade == ''){ return {"result" : false, "reason": "학년 유효하지 않음 comcigan.herokuapp.com/?school=샌즈중학교&grade=1&class=5 와 같이 입력하세요"};}	  
+	  else if(queryData.class == null || queryData.class == undefined || queryData.class == ''){ return {"result" : false, "reason": "반 유효하지 않음 comcigan.herokuapp.com/?school=샌즈중학교&grade=1&class=5 와 같이 입력하세요"}; }
+	  else { return {"result" : true, "reason": "통과"}; }
+	  }		  
+	if(!qdf().result){
 	res.writeHead(404, {'Content-Type': 'text/html'});
 	res.write("<!DOCTYPE html>\n");
 	res.write("<html>\n");
@@ -50,14 +56,14 @@ var port = process.env.PORT || 8080;
 	res.write("<body>\n");
 	res.write('<div>\n');
 	res.write('<h1>404!</h1>\n');
-	res.write('<h2>학교를 입력하세요. comcigan.herokuapp.com/?school=***학교</h2>\n');
+	res.write('<h2>'+qdf().reason+'</h2>\n');
 	res.write('</div>\n');
 	res.write("</body>\n");
 	res.write("</html>\n");
 	res.end();
 	}
-	if(queryData.school != null && queryData.school != undefined && queryData.school != ''){
-	siganKaling(queryData.school, 1, 2)
+	if(qdf().result){
+	siganKaling(queryData.school, Number(queryData.grade), Number(queryData.class))
 	.then(function(x){
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write('<html><head><meta name="viewport" content="width=device-width, minimum-scale=0.1"><meta charset="utf-8"></head><body style="margin: 0px; background: #0e0e0e;"><img style="-webkit-user-select: none;margin: auto;" src=\''+x+'\'></body></html>');
