@@ -1,4 +1,11 @@
-﻿function siganKaling(school, grad, clas)
+const sleep = require("http");
+
+/* Prevent Sleep in Heroku Server */
+setInterval(function () {
+	sleep.get("http://comcigan.herokuapp.com");
+}, 600000); // every 10 minutes
+
+function siganKaling(school, grad, clas)
 {
 const Timetable = require('./cindex.js');
 const timetable = new Timetable();
